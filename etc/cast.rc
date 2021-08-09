@@ -1,0 +1,4 @@
+remote=origin
+branch_remote=master
+branch_local=cast
+xbps_src_args="-1"

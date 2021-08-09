@@ -1,0 +1,51 @@
+.Dd August 9, 2021
+.Dt CAST 1
+.Os
+.Sh NAME
+.Nm cast
+.Nd update system using customized packages
+.Sh SYNOPSIS
+.Nm
+.Ic install
+.Ar package...
+.Nm
+.Sh DESCRIPTION
+.Pp
+The first synopsis form builds packages from source, force installs, and repolocks them.
+.Pp
+The second synopsis form synchronizes source and remote binary repositories, builds packages installed previously with first form, and updates system using local and remote repositories.
+.Sh BEFORE FIRST USE
+.Pp
+Source repository is not initialized implicitly on purpose. It needs to be manually created for dedicated unprivileged user, then configured as wanted. Source repository is searched for with
+.Ic xdistdir ,
+is one of path it tries
+.Pa /var/lib/cast/void-packages .
+.Sh PRIVILEGES
+.Pp
+.Nm
+has to be run as privileged process. It does not escalate privileges for itself.
+.Pp
+Packages are build as separate unprivileged user.
+.Sh MODIFICATIONS
+.Pp
+.Nm
+is composed of small parts executing one another.
+Some of these parts are provided with alternative implementation.
+Parts are not limited to builtin implementations. Any executable adhering to (undocumented yet) interface can be used.
+.Pp
+Parts are numbered to visualise order of execution. This is not plug-in system - to be run, part must be executed by other part. Entry point is
+.Pa /usr/bin/cast .
+.Sh CONFIGURATION FILES
+.Bl -tag -compact
+.It Pa /etc/cast.rc
+Configuration file sourced by unprivileged parts.
+.It Pa /etc/cast/*
+Symbolic links selecting implementation of parts.
+.It Pa /etc/xbps.d/30-repository-cast.conf
+XBPS configuration file enabling local binary repository.
+.El
+.Sh OTHER TOOLS
+.Bl -tag -compact
+.It Ic xbps-mini-builder
+builds chosen unmodified packages
+.El

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# find location of self, can be overridden by exporting CAST_BINDIR=/path
+if [ "$0" = cast ]; then
+	: "${CAST_BINDIR:=$(dirname "$(command -v cast)")}"
+else
+	: "${CAST_BINDIR:=$(dirname "$0")}"
+fi
+
+cd "$CAST_BINDIR/../../etc/cast" &&
+if [ "$1" = install ]; then
+	shift
+	./100-install "$@"
+else
+	./100-update
+fi
