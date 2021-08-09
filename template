@@ -1,0 +1,23 @@
+# Template file for 'cast'
+pkgname=cast
+version=1
+revision=1
+depends="git xtools"
+short_desc="Update system using customized packages"
+maintainer="Piotr Wójcik <chocimier@tlen.pl>"
+license="BSD-2-Clause"
+homepage="https://github.com/Chocimier/cast"
+distfiles="https://github.com/Chocimier/cast/archive/refs/tags/${version}.tar.gz"
+checksum=
+conf_files="/etc/cast.rc /etc/xbps.d/30-repository-cast.conf /etc/cast/*"
+make_dirs="/var/lib/cast 0750 _cast _cast"
+system_accounts="_cast"
+_cast_homedir="/var/lib/cast"
+_cast_shell="/bin/sh"
+
+do_install() {
+	vcopy etc .
+	vcopy usr .
+	vman cast.1
+	vlicense COPYING
+}
