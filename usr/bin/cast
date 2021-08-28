@@ -1,5 +1,11 @@
 #!/bin/sh
 
+usage() {
+	echo "Usage:"
+	echo " cast"
+	echo " cast install PACKAGE..."
+}
+
 # find location of self, can be overridden by exporting CAST_BINDIR=/path
 if [ -z "$CAST_BINDIR" ]; then
 	if [ "$0" = cast ]; then
@@ -14,6 +20,9 @@ cd "$CAST_BINDIR/../../etc/cast" &&
 if [ "$1" = install ]; then
 	shift
 	./100-install "$@"
-else
+elif [ "$#" -eq 0 ]; then
 	./100-update
+else
+	usage >&2
+	exit 1
 fi
