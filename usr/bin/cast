@@ -1,10 +1,13 @@
 #!/bin/sh
 
 # find location of self, can be overridden by exporting CAST_BINDIR=/path
-if [ "$0" = cast ]; then
-	: "${CAST_BINDIR:=$(dirname "$(command -v cast)")}"
-else
-	: "${CAST_BINDIR:=$(dirname "$0")}"
+if [ -z "$CAST_BINDIR" ]; then
+	if [ "$0" = cast ]; then
+		called="$(command -v cast)"
+	else
+		called="$0"
+	fi
+	CAST_BINDIR="$(dirname "$(realpath "$called")")"
 fi
 
 cd "$CAST_BINDIR/../../etc/cast" &&
