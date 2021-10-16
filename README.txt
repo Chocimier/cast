@@ -4,7 +4,7 @@ NAME
      cast – update system using customized packages
 
 SYNOPSIS
-     cast install package...
+     cast install PACKAGE...
      cast
 
 DESCRIPTION
@@ -18,8 +18,8 @@ DESCRIPTION
 BEFORE FIRST USE
      Source repository is not initialized implicitly on purpose. It needs to
      be manually created for dedicated unprivileged user, then configured as
-     wanted. Source repository is searched for with xdistdir, is one of path
-     it tries /var/lib/cast/void-packages.
+     wanted. Source repository is searched for with xdistdir, one of path it
+     tries /var/lib/cast/void-packages.
 
 PRIVILEGES
      cast has to be run as privileged process. It does not escalate privileges
