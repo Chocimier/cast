@@ -1,6 +1,6 @@
 # Template file for 'cast'
 pkgname=cast
-version=1
+version=2
 revision=1
 depends="git xtools"
 short_desc="Update system using customized packages"
@@ -19,5 +19,6 @@ do_install() {
 	vcopy etc .
 	vcopy usr .
 	vman cast.1
+	vdoc CHANGES
 	vlicense COPYING
 }

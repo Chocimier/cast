@@ -1,0 +1,13 @@
+# Version 2 (2021-10-16)
+
+- fix calling via symlink
+- error out on missing `install` in `cast install pkg`
+- loosely define interface for parts
+- add template
+
+# Version 1 (2021-08-09)
+
+First public version.
+
+- builds and installs packages as unprivileged user
+- updates system, rebuilding packages it previously installed
