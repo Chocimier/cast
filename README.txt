@@ -30,8 +30,8 @@ PRIVILEGES
 MODIFICATIONS
      cast is composed of small parts executing one another.  Some of these
      parts are provided with alternative implementation.  Parts are not
-     limited to builtin implementations. Any executable adhering to
-     (undocumented yet) interface can be used.
+     limited to builtin implementations. Any shell script adhering to
+     documented interface can be used.
 
      Parts are numbered to visualise order of execution. This is not plug-in
      system - to be run, part must be executed by other part. Entry point is
