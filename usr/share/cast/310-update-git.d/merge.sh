@@ -3,4 +3,5 @@
 cd "$(xdistdir)" &&
 git fetch "${remote}" &&
 git checkout "${branch_local}" &&
-git merge "${remote}/${branch_remote}"
+git merge "${remote}/${branch_remote}" &&
+git checkout --detach
