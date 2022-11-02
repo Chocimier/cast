@@ -1,6 +1,6 @@
 # Template file for 'cast'
 pkgname=cast
-version=2
+version=3
 revision=1
 depends="git xtools"
 short_desc="Update system using customized packages"

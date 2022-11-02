@@ -1,3 +1,9 @@
+# Version 3 (2022-10-02)
+
+- detach branch, so it can be pushed to
+- add update part that asks for confirmation before install
+- move cast repository before default ones
+
 # Version 2 (2021-10-16)
 
 - fix calling via symlink
